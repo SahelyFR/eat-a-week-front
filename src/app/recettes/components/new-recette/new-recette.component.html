@@ -1,0 +1,44 @@
+<div class="form-card">
+    <h2>Nouvelle recette</h2>
+    <form [formGroup]="recetteForm">
+        <div class="form-group">
+            <label for="name">Nom</label>
+            <input id="name" type="text" formControlName="name">
+        </div>
+        <div class="form-group">
+            <label for="link">Lien</label>
+            <input id="link" type="text" formControlName="link">
+        </div>
+        <div class="form-group">
+            <label for="spring">Printemps</label>
+            <input id="spring" type="checkbox" formControlName="spring">
+        
+            <label for="summer">Eté</label>
+            <input id="summer" type="checkbox" formControlName="summer">
+        
+            <label for="autumn">Automne</label>
+            <input id="autumn" type="checkbox" formControlName="autumn">
+        
+            <label for="winter">Hiver</label>
+            <input id="winter" type="checkbox" formControlName="winter">
+        </div>
+        <div class="action-buttons">
+            <button mat-raised-button color="primary" type="button" (click)="onSubmitForm()" [disabled]="recetteForm.invalid">Créer</button>
+        </div>
+    </form>
+</div>
+<div class="recette-card" *ngIf="recettePreview$ | async as recette">
+    <h2>{{recette.name | titlecase }}  </h2>
+    <table>
+        <thead><th>Printemps</th><th>Eté</th><th>Automne</th><th>Hiver</th></thead>
+        <tbody>
+            <tr>
+                <td><mat-checkbox [checked]=recette.spring></mat-checkbox></td>
+                <td><mat-checkbox [checked]=recette.summer></mat-checkbox></td>
+                <td><mat-checkbox [checked]=recette.autumn></mat-checkbox></td>
+                <td><mat-checkbox [checked]=recette.winter></mat-checkbox></td>
+            </tr>
+        </tbody>
+    </table>
+    <a mat-raised-button color="primary" href="{{recette.link}}" target="_blank">Voir la recette</a>
+</div>

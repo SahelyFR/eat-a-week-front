@@ -1,0 +1,25 @@
+<header>
+  <mat-toolbar>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" [matMenuTriggerFor]="menu">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="recettes" routerLinkActive="active">
+        <mat-icon>list</mat-icon>
+        <span>Liste des recettes</span>
+      </button>
+      <button mat-menu-item routerLink="recette" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <mat-icon>note_add</mat-icon>
+        <span>Ajouter une recette</span>
+      </button>
+    </mat-menu>
+    <span routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">EatAWeek</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button routerLink="login" routerLinkActive="active" class="login-icon" aria-label="Login in EatAWeek">
+      <mat-icon>login</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>share</mat-icon>
+    </button>
+    </mat-toolbar>
+</header>

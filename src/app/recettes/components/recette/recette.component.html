@@ -1,0 +1,17 @@
+<div class="recette-card" *ngIf="recette$ | async as recette">
+    <h2>{{recette.name | titlecase }}</h2>
+    <table>
+        <thead><th>Printemps</th><th>Eté</th><th>Automne</th><th>Hiver</th></thead>
+        <tbody>
+            <tr>
+                <td><mat-checkbox [checked]=recette.spring></mat-checkbox></td>
+                <td><mat-checkbox [checked]=recette.summer></mat-checkbox></td>
+                <td><mat-checkbox [checked]=recette.autumn></mat-checkbox></td>
+                <td><mat-checkbox [checked]=recette.winter></mat-checkbox></td>
+            </tr>
+        </tbody>
+    </table>
+    <a mat-raised-button color="primary" href="{{recette.link}}" target="_blank">Voir la recette</a>
+</div>
+
+
